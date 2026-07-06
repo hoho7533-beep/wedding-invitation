@@ -3230,6 +3230,31 @@ p {
     word-break: keep-all;
 }
 </style>
+
+<style id="account-display-stability-fix">
+/* 계좌 섹션은 하단 등장 애니메이션 영향 없이 항상 표시되도록 고정 */
+#account,
+#account.motion-reveal,
+#account.in-view,
+#account details,
+#account details.motion-reveal,
+#account details.in-view {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+}
+#account {
+    display: block !important;
+    position: relative !important;
+}
+#account details {
+    display: block !important;
+}
+#account summary {
+    display: flex !important;
+}
+</style>
 </head>
 <body>
 <!-- 오프닝 애니메이션 화면 -->
@@ -3374,6 +3399,51 @@ p {
 <a class="btn-link alt" href="nmap://search?query=천안티웨딩&amp;appname=청첩장" rel="noopener" target="_blank">네이버지도(앱)</a>
 </div>
 </div>
+<div class="section" id="account">
+<div class="section-kicker">SPECIAL BAGGAGE</div><div class="section-title">마음 전하실 곳</div>
+<details>
+<summary>신랑 측 계좌번호</summary>
+<div class="account-info">
+<div class="account-list">
+<button aria-label="김수대 계좌정보 복사" class="account-item" data-copy="하나은행 346-910264-20007" type="button">
+<span class="account-person">김수대:</span>
+<span class="account-bank">하나은행 346-910264-20007</span>
+</button>
+<button aria-label="신 영 계좌정보 복사" class="account-item" data-copy="하나은행 346-910368-39107" type="button">
+<span class="account-person">신 영:</span>
+<span class="account-bank">하나은행 346-910368-39107</span>
+</button>
+<button aria-label="김상목 계좌정보 복사" class="account-item" data-copy="하나은행 873-910337-50907" type="button">
+<span class="account-person">김상목:</span>
+<span class="account-bank">하나은행 873-910337-50907</span>
+</button>
+</div>
+<div class="account-hint">각 항목을 누르면 계좌정보가 복사됩니다.</div>
+</div>
+</details>
+<details>
+<summary>신부 측 계좌번호</summary>
+<div class="account-info">
+<div class="account-list">
+<button aria-label="김주영 계좌정보 복사" class="account-item" data-copy="하나은행 238-910038-15507" type="button">
+<span class="account-person">김주영:</span>
+<span class="account-bank">하나은행 238-910038-15507</span>
+</button>
+<button aria-label="구경서 계좌정보 복사" class="account-item" data-copy="농협 1116-02-162642" type="button">
+<span class="account-person">구경서:</span>
+<span class="account-bank">농협 1116-02-162642</span>
+</button>
+<button aria-label="김현지 계좌정보 복사" class="account-item" data-copy="카카오뱅크 3333-024046739" type="button">
+<span class="account-person">김현지:</span>
+<span class="account-bank">카카오뱅크 3333-024046739</span>
+</button>
+</div>
+<div class="account-hint">각 항목을 누르면 계좌정보가 복사됩니다.</div>
+</div>
+</details>
+</div>
+</div>
+<div class="toast" id="toast">복사되었습니다.</div>
 <!-- 자동 슬라이드 자바스크립트 -->
 <script>
     function startSlider(trackId, dotsWrapId, interval, options = {}) {
@@ -3538,47 +3608,5 @@ p {
         revealTargets.forEach(el => motionObserver.observe(el));
     });
 </script>
-<div class="section" id="account">
-<div class="section-kicker">SPECIAL BAGGAGE</div><div class="section-title">마음 전하실 곳</div>
-<details>
-<summary>신랑 측 계좌번호</summary>
-<div class="account-info">
-<div class="account-list">
-<button aria-label="김수대 계좌정보 복사" class="account-item" data-copy="하나은행 346-910264-20007" type="button">
-<span class="account-person">김수대:</span>
-<span class="account-bank">하나은행 346-910264-20007</span>
-</button>
-<button aria-label="신 영 계좌정보 복사" class="account-item" data-copy="하나은행 346-910368-39107" type="button">
-<span class="account-person">신 영:</span>
-<span class="account-bank">하나은행 346-910368-39107</span>
-</button>
-<button aria-label="김상목 계좌정보 복사" class="account-item" data-copy="하나은행 873-910337-50907" type="button">
-<span class="account-person">김상목:</span>
-<span class="account-bank">하나은행 873-910337-50907</span>
-</button>
-</div>
-<div class="account-hint">각 항목을 누르면 계좌정보가 복사됩니다.</div>
-</div>
-</details>
-<details>
-<summary>신부 측 계좌번호</summary>
-<div class="account-info">
-<div class="account-list">
-<button aria-label="김주영 계좌정보 복사" class="account-item" data-copy="하나은행 238-910038-15507" type="button">
-<span class="account-person">김주영:</span>
-<span class="account-bank">하나은행 238-910038-15507</span>
-</button>
-<button aria-label="구경서 계좌정보 복사" class="account-item" data-copy="농협 1116-02-162642" type="button">
-<span class="account-person">구경서:</span>
-<span class="account-bank">농협 1116-02-162642</span>
-</button>
-<button aria-label="김현지 계좌정보 복사" class="account-item" data-copy="카카오뱅크 3333-024046739" type="button">
-<span class="account-person">김현지:</span>
-<span class="account-bank">카카오뱅크 3333-024046739</span>
-</button>
-</div>
-<div class="account-hint">각 항목을 누르면 계좌정보가 복사됩니다.</div>
-</div>
-</details>
-</div></div></body>
+</body>
 </html>
